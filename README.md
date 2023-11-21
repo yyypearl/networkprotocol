@@ -26,7 +26,6 @@
 2023<br> [네트워크 발표자료.pdf](https://github.com/hor629/networkprotocol/files/13421636/default.pdf)
 
 - 간단 SPEC 및 코드 구현 설명, FSM 설계 내용
-- 
 ![image](https://github.com/hor629/networkprotocol/assets/102593738/ebe4e800-c235-458b-9cfb-d84dd45b308c)
 ![image](https://github.com/hor629/networkprotocol/assets/102593738/1fe3efaa-1fb0-41f1-b744-96f0ab07982e)
 
