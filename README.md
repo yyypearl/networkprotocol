@@ -1,4 +1,4 @@
-# Network Protocol <br>: '네트워크로 말해요' 게임
+# Network Protocol <br>: 🔊'네트워크로 말해요' 게임
 
 ## 구현 목적
 - 오프라인 게임을 온라인 게임으로 구현
@@ -23,17 +23,18 @@
 14	제출		
 
 ### 최종 프로젝트 발표 pdf
+2023<br> [네트워크 발표자료.pdf](https://github.com/hor629/networkprotocol/files/13421636/default.pdf)
+
 - 간단 SPEC 및 코드 구현 설명, FSM 설계 내용
+- 
 ![image](https://github.com/hor629/networkprotocol/assets/102593738/ebe4e800-c235-458b-9cfb-d84dd45b308c)
 ![image](https://github.com/hor629/networkprotocol/assets/102593738/1fe3efaa-1fb0-41f1-b744-96f0ab07982e)
 
-2023 
-[네트워크 발표자료.pdf](https://github.com/hor629/networkprotocol/files/13421636/default.pdf)
 
-### 수행영상 (1)
+### 🖥 수행영상 (1)
 https://github.com/hor629/networkprotocol/assets/102593738/afde3518-c2a2-40ba-a677-7f679d0cf119
 
-### 수행영상 (2)
+### 🖥 수행영상 (2)
 https://github.com/hor629/networkprotocol/assets/102593738/58b77ba3-5e57-447e-abee-a2410417921c
 
 
