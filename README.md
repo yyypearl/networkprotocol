@@ -1,4 +1,4 @@
-![image](https://github.com/hor629/networkprotocol/assets/102593738/63e9014c-9686-492e-bf51-6d4b6ea87ad8)# Network Protocol : '네트워크로 말해요' 게임
+# Network Protocol : '네트워크로 말해요' 게임
 
 # 구현 목적
 - 오프라인 게임을 온라인 게임으로 구현
