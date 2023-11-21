@@ -1,20 +1,21 @@
 #include "mbed.h"
 #include "L3_msg.h"
+#include <string.h>
 
 uint8_t L3_encodePARINFO(uint8_t* msg, uint8_t numpar)
 {
     uint8_t size;
 
     msg[0] = 0; //type
-    msg[1] = numpar; //Âü°¡ÀÚ ¼ö ¾Ë¸²
+    msg[1] = numpar; //ì°¸ê°€ì ìˆ˜ ì•Œë¦¼
     size = 2;
 
-    return size; //»çÀÌÁî »ı·« °¡´É
+    return size; //ì‚¬ì´ì¦ˆ ìƒëµ ê°€ëŠ¥
 }
 
 uint8_t L3_getPARINFO_numpar(uint8_t* msg)
 {
-    return msg[1]; /Âü°¡ÀÚ ¼ö ¾Ë¸²
+    return msg[1]; //ì°¸ê°€ì ìˆ˜ ì•Œë¦¼
 }
 
 
@@ -23,7 +24,7 @@ uint8_t L3_encodePARCNF(uint8_t* msg, uint8_t* str)
     uint8_t size;
 
     msg[0] = 2; //type
-    strcpy(str, &msg[1]); //È®Á¤ID ¾Ë¸²
+    strcpy(str, &msg[1]); //í™•ì • ID ì•Œë¦¼
     size = strlen(str) + 1;
 
     return size;
@@ -31,7 +32,7 @@ uint8_t L3_encodePARCNF(uint8_t* msg, uint8_t* str)
 
 uint8_t* L3_getPARCNF_cnfID(uint8_t* msg)
 {
-    return &msg[1]; //È®Á¤ID ¾Ë¸²
+    return &msg[1]; //í™•ì • ID ì•Œë¦¼
 }
 
 
@@ -40,7 +41,7 @@ uint8_t L3_encodeRSREQ(uint8_t* msg, uint8_t* str)
     uint8_t size;
 
     msg[0] = 3; //type
-    strcpy(str, &msg[1]); //·ê ¾Ë¸²
+    strcpy(str, &msg[1]); //ë£° ì•Œë¦¼
     size = strlen(str) + 1;
 
     return size;
@@ -48,7 +49,7 @@ uint8_t L3_encodeRSREQ(uint8_t* msg, uint8_t* str)
 
 uint8_t* L3_getRSREQ_rule(uint8_t* msg)
 {
-    return &msg[1]; //·ê ¾Ë¸²
+    return &msg[1]; //ë£° ì•Œë¦¼
 }
 
 
@@ -57,7 +58,7 @@ uint8_t L3_encodeEXPREQ(uint8_t* msg, uint8_t* str)
     uint8_t size;
 
     msg[0] = 6; //type
-    strcpy(str, &msg[1]); //Á¤´ä ¼³¸í ¾Ë¸²
+    strcpy(str, &msg[1]); //ì •ë‹µ ì„¤ëª… ì•Œë¦¼
     size = strlen(str) + 1;
 
     return size;
@@ -65,16 +66,16 @@ uint8_t L3_encodeEXPREQ(uint8_t* msg, uint8_t* str)
 
 uint8_t* L3_getEXPREQ_exp(uint8_t* msg)
 {
-    return &msg[1]; //Á¤´ä ¼³¸í ¾Ë¸²
+    return &msg[1]; //ì •ë‹µ ì„¤ëª… ì•Œë¦¼
 }
 
 
-uint8_t L3_encodeSUBCNF(uint8_t* msg, uint8_t subcnf) //subcnf="Á¤´ä Á¦Ãâ ¿Ï·á"
+uint8_t L3_encodeSUBCNF(uint8_t* msg, uint8_t subcnf) //subcnf="ì •ë‹µ ì œì¶œ ì™„ë£Œ"
 {
     uint8_t size;
 
     msg[0] = 8; //type
-    msg[1] = subcnf; //Á¤´äÁ¦Ãâ È®ÀÎ ¾Ë¸²
+    msg[1] = subcnf; //ì •ë‹µì œì¶œ í™•ì¸ ì•Œë¦¼
     size = 2;
 
     return size;
@@ -82,7 +83,7 @@ uint8_t L3_encodeSUBCNF(uint8_t* msg, uint8_t subcnf) //subcnf="Á¤´ä Á¦Ãâ ¿Ï·á"
 
 uint8_t L3_getSUBCNF_subcnf(uint8_t* msg)
 {
-    return msg[1]; //Á¤´äÁ¦Ãâ È®ÀÎ ¾Ë¸²
+    return msg[1]; //ì •ë‹µì œì¶œ í™•ì¸ ì•Œë¦¼
 }
 
 
@@ -91,7 +92,7 @@ uint8_t L3_encodeRESREQ(uint8_t* msg, uint8_t end, uint8_t* str)
     uint8_t size;
 
     msg[0] = 9; //type
-    msg[1] = end; //°ÔÀÓÁ¾·á ¾Ë¸²
+    msg[1] = end; //ê²Œì„ì¢…ë£Œ ì•Œë¦¼
     strcpy(str, &msg[2]);
     size = strlen(str) + 2;
 
@@ -100,19 +101,19 @@ uint8_t L3_encodeRESREQ(uint8_t* msg, uint8_t end, uint8_t* str)
 
 uint8_t L3_getRESREQ_end(uint8_t* msg)
 {
-    return msg[1]; //°ÔÀÓÁ¾·á ¾Ë¸²
+    return msg[1]; //ê²Œì„ì¢…ë£Œ ì•Œë¦¼
 }
 
 uint8_t* L3_getRESREQ_result(uint8_t* msg)
 {
-    return &msg[2]; //°ÔÀÓ°á°ú ¾Ë¸²
+    return &msg[2]; //ê²Œì„ê²°ê³¼ ì•Œë¦¼
 }
 
 
 
 
 uint8_t L3_decodePARREQ(uint8_t* msg, uint8_t* str1)
-// PAR_REQ: Èñ¸Á ID
+//PAR_REQ: í¬ë§ ID
 {
     uint8_t offset, size;
 
@@ -123,23 +124,23 @@ uint8_t L3_decodePARREQ(uint8_t* msg, uint8_t* str1)
     }
 
     msg[0] = 1; //type
-    //1¹ø : Èñ¸Á ID
-    size = msg[1]; //Èñ¸Á ID string ±æÀÌ
-    offset = 2; // ½ÃÀÛÁ¡
-    strcpy(str1, &msg[offset]); //Ã¹¹øÂ° data
+    //1ë²ˆ : í¬ë§ ID
+    size = msg[1]; //í¬ë§ ID string ê¸¸ì´
+    offset = 2; // ì‹œì‘ì 
+    strcpy(str1, &msg[offset]); //ì²«ë²ˆì§¸ data
 
     return size;
 }
 
 uint8_t* L3_getPARREQ_result1(uint8_t* msg)
 {
-    return &msg[1]; //Ã¹¹øÂ° data ¾Ë¸²
+    return &msg[1]; //ì²«ë²ˆì§¸ data ì•Œë¦¼
 }
 
 uint8_t L3_decodeRSCNF(uint8_t* msg, uint8_t* str1, uint8_t* str2, uint8_t* str3)
-// RS_CNF: ÃâÁ¦ÀÚ ·ê È®ÀÎ, ÃâÁ¦ ¹®Á¦ Á¤´ä, Á¤´ä ¼³¸í
+//RS_CNF: ì¶œì œì ë£° í™•ì¸, ì¶œì œ ë¬¸ì œ ì •ë‹µ, ì •ë‹µ ì„¤ëª…
 {
-    uint8_t offset, size; //offsetÀº À§Ä¡(½ÃÀÛÁ¡), size´Â Å©±â°ª
+    uint8_t offset, size; //offsetì€ ìœ„ì¹˜(ì‹œì‘ì ), sizeëŠ” í¬ê¸°ê°’
 
     if (str1 == NULL || str2 == NULL || str3 == NULL)
     {
@@ -148,24 +149,24 @@ uint8_t L3_decodeRSCNF(uint8_t* msg, uint8_t* str1, uint8_t* str2, uint8_t* str3
     }
 
     msg[0] = 4; //type
-    //1¹ø : ÃâÁ¦ÀÚ ·ê È®ÀÎ ÃßÃâ
-    size = msg[1]; //ÃâÁ¦ÀÚ ·ê È®ÀÎ string ±æÀÌ
-    offset = 2; // ½ÃÀÛÁ¡
-    strcpy(str1, &msg[offset]); //Ã¹¹øÂ° data
+    //1ë²ˆ : ì¶œì œì ë£° í™•ì¸ ì¶”ì¶œ
+    size = msg[1]; //ì¶œì œì ë£° í™•ì¸ string ê¸¸ì´
+    offset = 2; // ì‹œì‘ì 
+    strcpy(str1, &msg[offset]); //ì²«ë²ˆì§¸ data
 
-    //2¹ø : ÃâÁ¦ ¹®Á¦ Á¤´ä ÃßÃâ
-    offset = offset + size + 2;//strlen µ¿ÀÛ È®ÀÎ ÈÄ ¼öÁ¤
-    size = msg[offset - 1]; //size=lenÀÌ¶ó´Â ¹è¿­°ª ÀÇ¹ÌÇÔ.
-    strcpy(str2, &msg[offset]); //µÎ¹øÂ° data
+    //2ë²ˆ : ì¶œì œ ë¬¸ì œ ì •ë‹µ ì¶”ì¶œ
+    offset = offset + size + 2;//strlen ë™ì‘ í™•ì¸ í›„ ìˆ˜ì •
+    size = msg[offset - 1]; //size=lenì´ë¼ëŠ” ë°°ì—´ê°’ ì˜ë¯¸í•¨.
+    strcpy(str2, &msg[offset]); //ë‘ë²ˆì§¸ data
 
-    //3¹ø : Á¤´ä ¼³¸í
+    //3ë²ˆ : ì •ë‹µ ì„¤ëª…
     offset = offset + size + 2;
     size = msg[offset - 1];
-    strcpy(str3, &msg[offset]); //¼¼¹øÂ° data
+    strcpy(str3, &msg[offset]); //ì„¸ë²ˆì§¸ data
 
     
-    //size = msg[1 + size + 1]; //strlen µ¿ÀÛ È®ÀÎ ÈÄ ¼öÁ¤
-    //strcpy(&msg[3], str3); //¼¼¹øÂ° data
+    //size = msg[1 + size + 1]; //strlen ë™ì‘ í™•ì¸ í›„ ìˆ˜ì •
+    //strcpy(&msg[3], str3); //ì„¸ë²ˆì§¸ data
     //size = strlen(str1)+ strlen(str2)+ strlen(str3) + 1;
 
     return size;
@@ -173,22 +174,22 @@ uint8_t L3_decodeRSCNF(uint8_t* msg, uint8_t* str1, uint8_t* str2, uint8_t* str3
 
 uint8_t* L3_getRSCNF_result1(uint8_t* msg)
 {
-    return &msg[1]; //Ã¹¹øÂ° data ¾Ë¸²
+    return &msg[1]; //ì²«ë²ˆì§¸ data ì•Œë¦¼
 }
 
 uint8_t* L3_getRSCNF_result2(uint8_t* msg)
 {
-    return &msg[2]; //µÎ¹øÂ° data ¾Ë¸²
+    return &msg[2]; //ë‘ë²ˆì§¸ data ì•Œë¦¼
 }
 
 uint8_t* L3_getRSCNF_result3(uint8_t* msg)
 {
-    return &msg[3]; //¼¼¹øÂ° data ¾Ë¸²
+    return &msg[3]; //ì„¸ë²ˆì§¸ data ì•Œë¦¼
 }
 
 
 uint8_t L3_decodeRULCNF(uint8_t* msg, uint8_t* str1)
-// RUL_CNF: Âü°¡ÀÚ ·ê È®ÀÎ
+// RUL_CNF: ì°¸ê°€ì ë£° í™•ì¸
 {
     uint8_t offset, size;
 
@@ -199,21 +200,21 @@ uint8_t L3_decodeRULCNF(uint8_t* msg, uint8_t* str1)
     }
 
     msg[0] = 5; //type
-    //1¹ø : Âü°¡ÀÚ ·ê È®ÀÎ
-    size = msg[1]; //Âü°¡ÀÚ ·ê È®ÀÎ string ±æÀÌ
-    offset = 2; // ½ÃÀÛÁ¡
-    strcpy(str1, &msg[offset]); //Ã¹¹øÂ° data
+    //1ë²ˆ : ì°¸ê°€ì ë£° í™•ì¸
+    size = msg[1]; //ì°¸ê°€ì ë£° í™•ì¸ string ê¸¸ì´
+    offset = 2; // ì‹œì‘ì 
+    strcpy(str1, &msg[offset]); //ì²«ë²ˆì§¸ data
 
     return size;
 }
 
 uint8_t* L3_getRULCNF_result1(uint8_t* msg)
 {
-    return &msg[1]; //Ã¹¹øÂ° data ¾Ë¸²
+    return &msg[1]; //ì²«ë²ˆì§¸ data ì•Œë¦¼
 }
 
 uint8_t L3_decodeESCNF(uint8_t* msg, uint8_t* str1)
-// ES_CNF: Âü°¡ÀÚ Á¦Ãâ Á¤´ä
+// ES_CNF: ì°¸ê°€ì ì œì¶œ ì •ë‹µ
 {
     uint8_t offset, size;
 
@@ -224,21 +225,21 @@ uint8_t L3_decodeESCNF(uint8_t* msg, uint8_t* str1)
     }
 
     msg[0] = 7; //type 
-    //1¹ø : Âü°¡ÀÚ Á¦Ãâ Á¤´ä ÃßÃâ
-    size = msg[1]; //Âü°¡ÀÚ Á¦Ãâ Á¤´ä string ±æÀÌ
-    offset = 2; // ½ÃÀÛÁ¡
-    strcpy(str1, &msg[offset]); //Ã¹¹øÂ° data
+    //1ë²ˆ : ì°¸ê°€ì ì œì¶œ ì •ë‹µ ì¶”ì¶œ
+    size = msg[1]; //ì°¸ê°€ì ì œì¶œ ì •ë‹µ string ê¸¸ì´
+    offset = 2; // ì‹œì‘ì 
+    strcpy(str1, &msg[offset]); //ì²«ë²ˆì§¸ data
 
     return size;
 }
 
 uint8_t* L3_getESCNF_result1(uint8_t* msg)
 {
-    return &msg[1]; //Ã¹¹øÂ° data ¾Ë¸²
+    return &msg[1]; //ì²«ë²ˆì§¸ data ì•Œë¦¼
 }
 
 uint8_t L3_decodeRESCNF(uint8_t* msg, uint8_t* str1)
-// RES_CNF: Á¾·á È®ÀÎ
+// RES_CNF: ì¢…ë£Œ í™•ì¸
 {
     uint8_t offset, size;
 
@@ -249,19 +250,15 @@ uint8_t L3_decodeRESCNF(uint8_t* msg, uint8_t* str1)
     }
 
     msg[0] = 10 //type 
-    //1¹ø : Á¾·á È®ÀÎ ÃßÃâ
-    size = msg[1]; //Á¾·á È®ÀÎ string ±æÀÌ
-    offset = 2; // ½ÃÀÛÁ¡
-    strcpy(str1, &msg[offset]); //Ã¹¹øÂ° data
+    //1ë²ˆ : ì¢…ë£Œ í™•ì¸ ì¶”ì¶œ
+    size = msg[1]; //ì¢…ë£Œ í™•ì¸ string ê¸¸ì´
+    offset = 2; // ì‹œì‘ì 
+    strcpy(str1, &msg[offset]); //ì²«ë²ˆì§¸ data
 
     return size;
 }
 
 uint8_t* L3_getRESCNF_result1(uint8_t* msg)
 {
-    return &msg[1]; //Ã¹¹øÂ° data ¾Ë¸²
+    return &msg[1]; //ì²«ë²ˆì§¸ data ì•Œë¦¼
 }
-
-
-
-
